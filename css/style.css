@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+.container {
+    max-height: 200px;
+    width: 500px;
+    background-color: #333333;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.draggable {
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    cursor: move;
+}
+.draggable p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: #333333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.draggable .dragging {
+    opacity: 0.5;
+}
+
+
