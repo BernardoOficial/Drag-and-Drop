@@ -1,22 +1,21 @@
+$ = document.querySelector.bind(document);
+all = document.querySelectorAll.bind(document);
+
 // Precisamos selecionar o que será arrastado e mudado de posição
-const draggables = document.querySelectorAll('.draggable');
+const draggables = all('.draggable');
 
 // Além disso, precisamos selecionar o elemento onde poderão ocorrer essas modificações 
-const containers = document.querySelectorAll('.container');
+const containers = all('.container');
 
 draggables.forEach(draggable => {
 
     // Evento ativado quando começar o arrasto
-    draggable.addEventListener('dragstart', () => {
-
-        draggable.classList.add('dragging');
-    })
+    draggable.addEventListener('dragstart', () =>
+        draggable.classList.add('dragging'));
 
     // Evento ativado quando terminar o arrasto
-    draggable.addEventListener('dragend', () => {
-
-        draggable.classList.remove('dragging');
-    })
+    draggable.addEventListener('dragend', () =>
+        draggable.classList.remove('dragging'));
 })
 
 containers.forEach(container => {
@@ -30,7 +29,7 @@ containers.forEach(container => {
 
         // Elemento mais próxima que vem depois do elemento que está sendo arrastado.
         const afterElement = getDragAfterElement(container, e.clientY);
-        const draggable = document.querySelector('.dragging');
+        const draggable = $('.dragging');
 
         // Se não tiver elementos depois do elemento arrastavel, inserir depois desse elemento after
         if (afterElement == null) {
@@ -50,11 +49,11 @@ function getDragAfterElement(container, y) {
 
     return draggableElements.reduce((closest, child) => {
 
+        // função para conseguir as dimensões da caixa
         const box = child.getBoundingClientRect();
         const offset = y - box.top - box.height / 2;
 
         if (offset < 0 && offset > closest.offset) {
-
             return { offset: offset, element: child }
         }
         else {
